@@ -24,11 +24,11 @@
 	];
 </script>
 
-<section class="py-24 bg-white">
+<section class="py-24">
 	<div class="max-w-6xl mx-auto px-6">
 		<div class="mb-16">
 			<p class="text-sm font-medium tracking-widest uppercase mb-4" style="color: var(--color-accent)">Work</p>
-			<h2 class="text-4xl md:text-5xl font-bold text-gray-900">Featured projects</h2>
+			<h2 class="text-4xl md:text-5xl font-bold text-gray-900">What we're building...</h2>
 		</div>
 
 		<div class="grid md:grid-cols-3 gap-6">
