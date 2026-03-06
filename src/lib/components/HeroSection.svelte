@@ -1,4 +1,6 @@
 <script lang="ts">
+	import squiggle from '$lib/assets/squiggle.svg';
+
 	function scrollToContact() {
 		document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 	}
@@ -21,8 +23,18 @@
 
 <section class="pt-32 pb-8 overflow-hidden">
 	<div class="max-w-4xl mx-auto px-6 text-center">
-		<h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-6">
-			Your app idea shaped and shipped.
+		<h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-10">
+			Your app idea<br />
+			<span class="relative inline-block">
+				shaped and shipped.
+				<img
+					src={squiggle}
+					alt=""
+					aria-hidden="true"
+					class="absolute left-0 w-full pointer-events-none"
+					style="bottom: -6px; height: 14px; object-fit: fill;"
+				/>
+			</span>
 		</h1>
 		<p class="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto mb-10">
 			Every great product starts with a blueprint. We help you draw it, shape it, and ship it.
