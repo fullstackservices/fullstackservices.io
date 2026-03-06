@@ -2,7 +2,7 @@
 	import hww from '$lib/assets/how-we-work.png';
 </script>
 
-<section class="py-24">
+<section id="how-we-work" class="py-24">
 	<div class="max-w-6xl mx-auto px-6">
 		<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-12">How we work</h2>
 

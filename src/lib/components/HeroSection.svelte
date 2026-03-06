@@ -71,13 +71,13 @@
 	.marquee-track {
 		display: flex;
 		width: max-content;
-		gap: 20px;
+		gap: 16px;
 		animation: marquee 30s linear infinite;
 	}
 
 	.marquee-card {
-		width: 200px;
-		height: 160px;
+		width: 53vw;
+		height: 280px;
 		background: white;
 		border-radius: 16px;
 		padding: 16px;
