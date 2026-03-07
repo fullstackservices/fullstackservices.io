@@ -23,16 +23,16 @@
 
 <section class="pt-32 pb-8 overflow-hidden">
 	<div class="max-w-4xl mx-auto px-6 text-center">
-		<h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-10">
+		<h1 class="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight text-gray-900 mb-12">
 			Your app idea<br />
-			<span class="relative inline-block">
-				shaped and shipped.
+			shaped and <span class="relative inline-block">
+				shipped.
 				<img
 					src={squiggle}
 					alt=""
 					aria-hidden="true"
 					class="absolute left-0 w-full pointer-events-none"
-					style="bottom: -6px; height: 14px; object-fit: fill;"
+					style="bottom: -8px; height: 20px; object-fit: fill;"
 				/>
 			</span>
 		</h1>
@@ -84,7 +84,7 @@
 		display: flex;
 		width: max-content;
 		gap: 16px;
-		animation: marquee 30s linear infinite;
+		animation: marquee 60s linear infinite;
 	}
 
 	.marquee-card {

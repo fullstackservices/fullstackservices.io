@@ -1,15 +1,50 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
+	import intlTelInput from 'intl-tel-input';
+	import 'intl-tel-input/styles';
+	import Icon from '@iconify/svelte';
+
 	type FormState = 'idle' | 'submitting' | 'success';
 
 	let formState = $state<FormState>('idle');
 	let name = $state('');
 	let email = $state('');
-	let phone = $state('');
 	let timeline = $state('');
 	let vision = $state('');
 	let budget = $state('');
+	let timelineOpen = $state(false);
+
+	let phoneEl = $state<HTMLInputElement | null>(null);
+	let iti: ReturnType<typeof intlTelInput>;
 
 	const budgetOptions = ['Under $5K', '$5K – $15K', '$15K – $50K', '$50K+', 'Speed over cash flow'];
+
+	const timelineOptions = [
+		{ value: 'asap',        label: 'Start Immediately', icon: 'mingcute:rocket-line' },
+		{ value: '1-3months',   label: '1–3 months',        icon: 'mingcute:time-line' },
+		{ value: '3-6months',   label: '3–6 months',        icon: 'mingcute:calendar-line' },
+		{ value: 'exploratory', label: 'Just Exploring',    icon: 'mingcute:compass-discover-line' },
+	];
+
+	const selectedTimeline = $derived(timelineOptions.find(o => o.value === timeline));
+
+	onMount(() => {
+		iti = intlTelInput(phoneEl!, {
+			loadUtils: () => import('intl-tel-input/utils'),
+			initialCountry: 'us',
+			strictMode: true,
+		});
+
+		const closeOnOutsideClick = (e: MouseEvent) => {
+			if (timelineOpen && !(e.target as Element)?.closest('.timeline-dropdown')) {
+				timelineOpen = false;
+			}
+		};
+		window.addEventListener('click', closeOnOutsideClick);
+		return () => window.removeEventListener('click', closeOnOutsideClick);
+	});
+
+	onDestroy(() => iti?.destroy());
 
 	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
@@ -72,28 +107,49 @@
 						<label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
 						<input
 							id="phone"
+							bind:this={phoneEl}
 							type="tel"
-							bind:value={phone}
 							placeholder="+1 (555) 000-0000"
-							class="w-full px-4 py-3 rounded-xl border border-[#e4e4e4] text-sm focus:outline-none focus:ring-2 focus:border-transparent transition"
+							class="w-full py-3 rounded-xl border border-[#e4e4e4] text-sm focus:outline-none focus:ring-2 focus:border-transparent transition"
 							style="--tw-ring-color: var(--color-accent)"
 						/>
 					</div>
 					<div>
-						<label for="timeline" class="block text-sm font-medium text-gray-700 mb-1">Launch timeline</label>
-						<select
-							id="timeline"
-							bind:value={timeline}
-							required
-							class="w-full px-4 py-3 rounded-xl border border-[#e4e4e4] text-sm focus:outline-none focus:ring-2 focus:border-transparent transition bg-white"
-							style="--tw-ring-color: var(--color-accent)"
-						>
-							<option value="" disabled selected>Select a timeline</option>
-							<option value="asap">As soon as possible</option>
-							<option value="1-3months">1–3 months</option>
-							<option value="3-6months">3–6 months</option>
-							<option value="exploratory">Just exploring</option>
-						</select>
+						<label for="timeline-btn" class="block text-sm font-medium text-gray-700 mb-1">Launch timeline</label>
+						<div class="dropdown w-full timeline-dropdown relative" class:dropdown-open={timelineOpen}>
+							<button
+								id="timeline-btn"
+								type="button"
+								class="w-full px-4 py-3 rounded-xl border border-[#e4e4e4] text-sm text-left flex items-center justify-between bg-white"
+								onclick={() => timelineOpen = !timelineOpen}
+							>
+								{#if selectedTimeline}
+									<span class="flex items-center gap-2">
+										<Icon icon={selectedTimeline.icon} class="w-4 h-4" />
+										{selectedTimeline.label}
+									</span>
+								{:else}
+									<span class="text-gray-400">Select a timeline</span>
+								{/if}
+								<Icon icon="mingcute:down-line" class="w-4 h-4 text-gray-400" />
+							</button>
+							{#if timelineOpen}
+								<ul class="absolute top-full left-0 w-full bg-white rounded-xl border border-[#e4e4e4] z-10 p-1 shadow-md mt-1">
+									{#each timelineOptions as option (option.value)}
+										<li>
+											<button
+												type="button"
+												class="flex items-center gap-2 text-sm w-full px-3 py-2 rounded-lg transition-colors {timeline === option.value ? 'bg-[#fff0ef] text-[var(--color-accent)]' : 'hover:bg-gray-50'}"
+												onclick={() => { timeline = option.value; timelineOpen = false; }}
+											>
+												<Icon icon={option.icon} class="w-4 h-4" />
+												{option.label}
+											</button>
+										</li>
+									{/each}
+								</ul>
+							{/if}
+						</div>
 					</div>
 				</div>
 
@@ -113,7 +169,7 @@
 				<div>
 					<p class="text-sm font-medium text-gray-700 mb-3">What's your monthly building budget?</p>
 					<div class="flex flex-wrap gap-2">
-						{#each budgetOptions as option}
+						{#each budgetOptions as option (option)}
 							<button
 								type="button"
 								onclick={() => budget = option}
@@ -139,3 +195,26 @@
 		{/if}
 	</div>
 </section>
+
+<style>
+	:global(.iti) {
+		width: 100%;
+	}
+
+	:global(.iti__tel-input) {
+		width: 100%;
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+		padding-right: 1rem;
+		border-radius: 0.75rem;
+		border: 1px solid #e4e4e4;
+		font-size: 0.875rem;
+		outline: none;
+		transition: all 0.15s;
+	}
+
+	:global(.iti__tel-input:focus) {
+		ring: 2px;
+		border-color: transparent;
+	}
+</style>

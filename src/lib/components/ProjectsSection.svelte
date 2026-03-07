@@ -55,13 +55,10 @@
 		</div>
 
 		<div class="flex flex-col gap-6">
-			{#each projects.slice(0, 3) as project (project.title)}
-				<div class="flex flex-col md:flex-row rounded-2xl border border-[#e4e4e4] overflow-hidden transition-all duration-300 hover:shadow-md cursor-default">
-					<div
-						class="md:w-2/5 min-h-48 md:min-h-80 flex items-center justify-center"
-						style="background: {project.color}18"
-					>
-						<span class="text-8xl font-bold opacity-20" style="color: {project.color}">
+			{#each projects.slice(0, 3) as project, i (project.title)}
+				<div class="flex flex-col {i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} rounded-2xl border border-[#e4e4e4] overflow-hidden transition-all duration-300 hover:shadow-md cursor-default">
+					<div class="md:w-2/5 min-h-48 md:min-h-96 flex items-center justify-center bg-white">
+						<span class="text-9xl font-bold" style="color: {project.color}; opacity: 0.15">
 							{project.title[0]}
 						</span>
 					</div>
@@ -85,16 +82,13 @@
 			{/each}
 
 			{#if showAll}
-				{#each projects.slice(3) as project (project.title)}
+				{#each projects.slice(3) as project, i (project.title)}
 					<div
 						transition:fade={{ duration: 300 }}
-						class="flex flex-col md:flex-row rounded-2xl border border-[#e4e4e4] overflow-hidden transition-all duration-300 hover:shadow-md cursor-default"
+						class="flex flex-col {(i + 3) % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} rounded-2xl border border-[#e4e4e4] overflow-hidden transition-all duration-300 hover:shadow-md cursor-default"
 					>
-						<div
-							class="md:w-2/5 min-h-48 md:min-h-80 flex items-center justify-center"
-							style="background: {project.color}18"
-						>
-							<span class="text-8xl font-bold opacity-20" style="color: {project.color}">
+						<div class="md:w-2/5 min-h-48 md:min-h-96 flex items-center justify-center bg-white">
+							<span class="text-9xl font-bold" style="color: {project.color}; opacity: 0.15">
 								{project.title[0]}
 							</span>
 						</div>
