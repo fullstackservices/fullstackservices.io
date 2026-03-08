@@ -1,7 +1,6 @@
 <script lang="ts">
 	import NavBar from '$lib/components/NavBar.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
-	import TrustBarSection from '$lib/components/TrustBarSection.svelte';
 	import HowWeWorkSection from '$lib/components/HowWeWorkSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
 	import TestimonialsSection from '$lib/components/TestimonialsSection.svelte';
@@ -16,11 +15,10 @@
 
 <NavBar />
 <HeroSection />
-<TrustBarSection />
+<!-- <TrustBarSection /> -->
 <HowWeWorkSection />
 <ProjectsSection />
 <TestimonialsSection />
 <AboutSection />
 <ContactSection />
 <FooterSection />
-
