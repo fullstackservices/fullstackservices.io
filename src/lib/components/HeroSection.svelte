@@ -5,20 +5,22 @@
 		document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 	}
 
-	const cards = [
-		{ rotate: '-3deg', delay: '0s', color: '#6366f1' },
-		{ rotate: '2deg', delay: '0.5s', color: '#f59e0b' },
-		{ rotate: '-1.5deg', delay: '1s', color: '#10b981' },
-		{ rotate: '3deg', delay: '1.5s', color: '#3b82f6' },
-		{ rotate: '-2deg', delay: '2s', color: '#ec4899' },
-		{ rotate: '1.5deg', delay: '2.5s', color: '#8b5cf6' },
-		{ rotate: '-3deg', delay: '0s', color: '#6366f1' },
-		{ rotate: '2deg', delay: '0.5s', color: '#f59e0b' },
-		{ rotate: '-1.5deg', delay: '1s', color: '#10b981' },
-		{ rotate: '3deg', delay: '1.5s', color: '#3b82f6' },
-		{ rotate: '-2deg', delay: '2s', color: '#ec4899' },
-		{ rotate: '1.5deg', delay: '2.5s', color: '#8b5cf6' },
+	const rotations = ['-3deg', '2deg', '-1.5deg', '3deg', '-2deg', '1.5deg'];
+	const delays = ['0s', '0.5s', '1s', '1.5s', '2s', '2.5s'];
+
+	const baseImages = [
+		{ src: 'https://cdn.fullstackservices.io/images/twinspeak.png', label: 'TwinSpeak' },
+		{ src: 'https://cdn.fullstackservices.io/images/fretwise-1.png', label: 'FretWise.ai' },
+		{ src: 'https://cdn.fullstackservices.io/images/open-tunings.png', label: 'OpenTunings' },
+		{ src: 'https://cdn.fullstackservices.io/images/songsterr-1.png', label: 'Songsterr Downloader' },
+		{ src: 'https://cdn.fullstackservices.io/images/fretwise-2.png', label: 'FretWise.ai' },
 	];
+
+	const marqueeItems = [...baseImages, ...baseImages].map((img, i) => ({
+		...img,
+		rotate: rotations[i % rotations.length],
+		delay: delays[i % delays.length],
+	}));
 </script>
 
 <section class="pt-32 pb-8 overflow-hidden">
@@ -50,21 +52,18 @@
 
 	<div class="marquee-outer mt-16">
 		<div class="marquee-track">
-			{#each cards as card, i (i)}
+			{#each marqueeItems as item, i (i)}
 				<div
 					class="marquee-card"
-					style="--card-rotate: {card.rotate}; --float-delay: {card.delay}; --card-color: {card.color}"
+					style="--card-rotate: {item.rotate}; --float-delay: {item.delay}"
 				>
 					<div class="card-header">
 						<div class="dot" style="background: #ef4444"></div>
 						<div class="dot" style="background: #f59e0b"></div>
 						<div class="dot" style="background: #10b981"></div>
+						<span class="card-label">{item.label}</span>
 					</div>
-					<div class="card-bar" style="background: {card.color}; opacity: 0.15; width: 60%; height: 8px; border-radius: 4px; margin-bottom: 8px;"></div>
-					<div class="card-bar" style="background: #e5e7eb; width: 90%; height: 8px; border-radius: 4px; margin-bottom: 8px;"></div>
-					<div class="card-bar" style="background: #e5e7eb; width: 75%; height: 8px; border-radius: 4px; margin-bottom: 12px;"></div>
-					<div class="card-block" style="background: {card.color}; opacity: 0.12;"></div>
-					<div class="card-bar" style="background: #e5e7eb; width: 50%; height: 8px; border-radius: 4px; margin-top: 10px;"></div>
+					<img src={item.src} alt={item.label} class="card-screenshot" />
 				</div>
 			{/each}
 		</div>
@@ -84,27 +83,32 @@
 		display: flex;
 		width: max-content;
 		gap: 16px;
-		animation: marquee 60s linear infinite;
+		animation: marquee 45s linear infinite;
 	}
 
 	.marquee-card {
-		width: 53vw;
-		height: 280px;
+		width: 360px;
+		height: 260px;
 		background: white;
 		border-radius: 16px;
-		padding: 16px;
+		padding: 12px;
 		border: 1px solid #e5e7eb;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 		transform: rotate(var(--card-rotate));
 		animation: float 3.5s ease-in-out infinite;
 		animation-delay: var(--float-delay);
 		flex-shrink: 0;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.card-header {
 		display: flex;
+		align-items: center;
 		gap: 5px;
-		margin-bottom: 12px;
+		margin-bottom: 10px;
+		flex-shrink: 0;
 	}
 
 	.dot {
@@ -113,9 +117,19 @@
 		border-radius: 50%;
 	}
 
-	.card-block {
+	.card-label {
+		font-size: 11px;
+		font-weight: 500;
+		color: #9ca3af;
+		margin-left: 6px;
+	}
+
+	.card-screenshot {
+		flex: 1;
 		width: 100%;
-		height: 40px;
+		min-height: 0;
+		object-fit: cover;
+		object-position: top;
 		border-radius: 8px;
 	}
 
