@@ -1,7 +1,7 @@
 <script lang="ts">
-	import hww from '$lib/assets/how-we-work.png';
-	import bas from '$lib/assets/build-and-ship.png';
-	import mas from '$lib/assets/maintain-and-optimize.png';
+	import hww from '$lib/assets/landing-page/how-we-work.png';
+	import bas from '$lib/assets/landing-page/build-and-ship.png';
+	import mas from '$lib/assets/landing-page/maintain-and-optimize.png';
 </script>
 
 <section id="how-we-work" class="py-24">
