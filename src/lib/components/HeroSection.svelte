@@ -30,11 +30,12 @@
 			<span class="relative inline-block">
 				shipped.
 				<img
+					id="squiggleSvg"
 					src={squiggle}
 					alt=""
 					aria-hidden="true"
 					class="pointer-events-none absolute left-0 w-full"
-					style="bottom: -8px; height: 20px; object-fit: fill;"
+					style="bottom: -23px; left: -2px; height: 44px; object-fit: fill;"
 				/>
 			</span>
 		</h1>

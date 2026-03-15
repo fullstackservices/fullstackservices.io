@@ -16,8 +16,8 @@
 				<div class="p-8">
 					<h3 class="mb-3 text-xl font-bold text-gray-900">Discovery</h3>
 					<p class="leading-relaxed text-gray-500">
-						Every project starts with a 1–2 week discovery, where we define features, estimate
-						scope, and map the plan.
+						Every project starts with a 1–2 week discovery, where I define features, estimate scope,
+						and map the plan.
 					</p>
 				</div>
 			</div>
@@ -29,8 +29,8 @@
 				<div class="p-8">
 					<h3 class="mb-3 text-xl font-bold text-gray-900">Build & Ship</h3>
 					<p class="leading-relaxed text-gray-500">
-						We build in 1–6 week cycles focused on real progress. Each week delivers working
-						software you can test or launch.
+						I build in 1–6 week cycles focused on real progress. Each week delivers working software
+						you can test or launch.
 					</p>
 				</div>
 			</div>
@@ -46,8 +46,8 @@
 				<div class="p-8">
 					<h3 class="mb-3 text-xl font-bold text-gray-900">Maintain & Optimize</h3>
 					<p class="leading-relaxed text-gray-500">
-						After launch, we help you support your app. We track performance, fix bugs, and improve
-						based on real user feedback.
+						After launch, I'll help you support your app. I'll track performance, fix bugs, and
+						improve based on real user feedback.
 					</p>
 				</div>
 			</div>
