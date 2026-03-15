@@ -1,37 +1,47 @@
 <script lang="ts">
+	import fluent from '$lib/assets/companies/fluent.png';
+
 	const featured = {
-		quote: 'Ryan shipped our MVP in half the time we expected. He understood the product vision from day one and delivered something we were proud to launch.',
-		author: 'Alex M.',
+		quote:
+			'Ryan shipped our MVP in half the time we expected. He understood the product vision from day one and delivered something we were proud to launch.',
+		author: 'Alexandre D.',
 		role: 'Founder',
-		company: 'Company',
-		headshot: null as string | null,
-		companyLogo: null as string | null
+		company: 'Fluent AI',
+		headshot:
+			'https://media.licdn.com/dms/image/v2/D4E03AQFMn117tcXotg/profile-displayphoto-shrink_400_400/B4EZcwzfRVH0Ak-/0/1748870493790?e=1775088000&v=beta&t=FSv51A0AeSpExsqsc1xbDJ_x6wQne8pZi6Q_xHK4A4o',
+		companyLogo: fluent
 	};
 
 	const testimonials = [
 		{
-			quote: "Incredible attention to detail. The codebase was clean and the product worked exactly as spec'd.",
-			author: 'Sarah K.',
+			quote:
+				"Incredible attention to detail. The codebase was clean and the product worked exactly as spec'd.",
+			author: 'Alex Z.',
 			role: 'CTO',
 			company: 'Company',
-			headshot: null as string | null,
-			companyLogo: null as string | null
+			headshot:
+				'https://media.licdn.com/dms/image/v2/D5603AQHLb7XKVqCQnQ/profile-displayphoto-scale_400_400/B56ZzkpvwzKAAg-/0/1773362675109?e=1775088000&v=beta&t=ytSJiWEsZ-d9aWZdGPGKJsIQuA6owxM200ABr3Pn6nw',
+			companyLogo:
+				'https://media.licdn.com/dms/image/v2/D560BAQEJLfel8KUJSg/company-logo_200_200/B56Zuav1XoKYAM-/0/1767827790023/alphasignal_logo?e=1775088000&v=beta&t=dfGKPZCmNsLATn3IaiiSUqXOUqTBSDXlHElrzUbfNGo'
 		},
 		{
-			quote: 'We went from idea to live product in 6 weeks. Couldn\'t recommend more highly.',
-			author: 'Daniel R.',
-			role: 'Founder',
+			quote: "We went from idea to live product in 6 weeks. Couldn't recommend more highly.",
+			author: 'Almog C.',
+			role: 'Tech Lead',
 			company: 'Company',
-			headshot: null as string | null,
-			companyLogo: null as string | null
+			headshot:
+				'https://media.licdn.com/dms/image/v2/D4D03AQE_57tTZgnjeA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1710870138909?e=1775088000&v=beta&t=SWmer4x_tCzJ2JbXjhszNth9SG1svGP-BajgHsvigW8',
+			companyLogo:
+				'https://images.squarespace-cdn.com/content/v1/624e9a19a495f318719230e0/e9b2f358-b7f1-4e61-9e02-e80bf220f4f0/Stigg_Logo_ForLightBG%402x.png'
 		},
 		{
-			quote: 'Full-stack, fast, reliable. The best engineering partner we\'ve worked with.',
-			author: 'Maya T.',
-			role: 'Product Lead',
+			quote: "Full-stack, fast, reliable. The best engineering partner we've worked with.",
+			author: 'Nimrod G.',
+			role: 'Staff Engineer',
 			company: 'Company',
-			headshot: null as string | null,
-			companyLogo: null as string | null
+			headshot:
+				'https://media.licdn.com/dms/image/v2/C4D03AQE4p-KEirmidQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1586763771597?e=1775088000&v=beta&t=jD5es5RmIAzvQi1eh97GfR2MStvhZAiAM46tGmm5mp0',
+			companyLogo: 'https://lsvp.com/wp-content/uploads/2023/03/Navan.png'
 		}
 	];
 </script>
@@ -69,7 +79,7 @@
 			<div
 				class="flex min-h-[480px] flex-col justify-between rounded-2xl border border-gray-200 bg-white p-10 md:col-span-2"
 			>
-				<blockquote class="mb-8 text-2xl font-medium leading-relaxed text-gray-800">
+				<blockquote class="mb-8 text-2xl leading-relaxed font-medium text-gray-800">
 					"{featured.quote}"
 				</blockquote>
 				{@render authorFooter(featured)}
@@ -77,7 +87,9 @@
 
 			<div class="flex min-h-[480px] flex-col gap-6">
 				{#each testimonials as t (t.author)}
-					<div class="flex flex-1 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6">
+					<div
+						class="flex flex-1 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6"
+					>
 						<blockquote class="mb-4 text-sm leading-relaxed text-gray-700">
 							"{t.quote}"
 						</blockquote>

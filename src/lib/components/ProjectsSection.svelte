@@ -14,11 +14,11 @@
 			color: '#6366f1',
 			image: 'https://cdn.fullstackservices.io/images/twinspeak-3.png',
 			imagePosition: 'object-left',
-			url: '#'
+			url: 'https://twinspeak.ai/'
 		},
 		{
 			tag: 'AI · Music Tech',
-			title: 'FretWise.ai',
+			title: 'Fretwise.ai',
 			subtitle: 'AI Guitar Transcription',
 			description:
 				'AI-powered guitar tab transcription tool that converts audio to accurate tabs in seconds.',
@@ -26,7 +26,7 @@
 			color: '#f59e0b',
 			image: 'https://cdn.fullstackservices.io/images/fretwise-1.png',
 			imagePosition: 'object-top',
-			url: '#'
+			url: 'https://fretwise.ai/'
 		},
 		{
 			tag: 'Web App',
@@ -38,7 +38,7 @@
 			color: '#10b981',
 			image: 'https://cdn.fullstackservices.io/images/songsterr-1.png',
 			imagePosition: 'object-top',
-			url: '#'
+			url: 'https://songsterr-downloader.com/'
 		},
 		{
 			tag: 'Web App',
@@ -50,7 +50,7 @@
 			color: '#ec4899',
 			image: 'https://cdn.fullstackservices.io/images/open-tunings.png',
 			imagePosition: 'object-top',
-			url: '#'
+			url: 'https://open-tunings.vercel.app/create'
 		},
 		{
 			tag: 'iOS App · AI',
@@ -58,11 +58,15 @@
 			subtitle: 'AI Conversation Summaries',
 			description:
 				'Screen record any conversation and get an instant summary with key points. Built for people drowning in group chats and long threads who just need the gist.',
-			highlights: ['Live on Apple App Store', 'Context-aware AI summaries', 'React Native · Gemini'],
+			highlights: [
+				'Live on Apple App Store',
+				'Context-aware AI summaries',
+				'React Native · Gemini'
+			],
 			color: '#3b82f6',
 			image: null,
 			imagePosition: 'object-top',
-			url: '#'
+			url: 'https://apps.apple.com/us/app/tldr-conversation-summarizer/id6756550125'
 		}
 	];
 </script>
