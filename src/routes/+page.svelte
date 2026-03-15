@@ -7,6 +7,7 @@
 	import AboutSection from '$lib/components/AboutSection.svelte';
 	import ContactSection from '$lib/components/ContactSection.svelte';
 	import FooterSection from '$lib/components/FooterSection.svelte';
+	import TrustBarSection from '$lib/components/TrustBarSection.svelte';
 </script>
 
 <svelte:head>
@@ -15,7 +16,7 @@
 
 <NavBar />
 <HeroSection />
-<!-- <TrustBarSection /> -->
+<TrustBarSection />
 <HowWeWorkSection />
 <ProjectsSection />
 <TestimonialsSection />
