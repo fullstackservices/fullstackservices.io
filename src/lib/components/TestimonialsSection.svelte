@@ -1,5 +1,6 @@
 <script lang="ts">
 	import fluent from '$lib/assets/companies/fluent.png';
+	import nikita from '$lib/assets/people/nikita.jpeg';
 
 	const featured = {
 		quote:
@@ -16,11 +17,10 @@
 		{
 			quote:
 				"Incredible attention to detail. The codebase was clean and the product worked exactly as spec'd.",
-			author: 'Alex Z.',
-			role: 'CTO',
+			author: 'Nikita B.',
+			role: 'Head of Engineering',
 			company: 'Company',
-			headshot:
-				'https://media.licdn.com/dms/image/v2/D5603AQHLb7XKVqCQnQ/profile-displayphoto-scale_400_400/B56ZzkpvwzKAAg-/0/1773362675109?e=1775088000&v=beta&t=ytSJiWEsZ-d9aWZdGPGKJsIQuA6owxM200ABr3Pn6nw',
+			headshot: nikita,
 			companyLogo:
 				'https://media.licdn.com/dms/image/v2/D560BAQEJLfel8KUJSg/company-logo_200_200/B56Zuav1XoKYAM-/0/1767827790023/alphasignal_logo?e=1775088000&v=beta&t=dfGKPZCmNsLATn3IaiiSUqXOUqTBSDXlHElrzUbfNGo'
 		},
@@ -49,15 +49,11 @@
 {#snippet authorFooter(person: typeof featured, compact = false)}
 	<div class="flex items-center justify-between">
 		<div class="flex items-center gap-3">
-			{#if person.headshot}
-				<img
-					src={person.headshot}
-					alt={person.author}
-					class="{compact ? 'h-9 w-9' : 'h-11 w-11'} rounded-full object-cover"
-				/>
-			{:else}
-				<div class="{compact ? 'h-9 w-9' : 'h-11 w-11'} rounded-full bg-gray-200"></div>
-			{/if}
+			<img
+				src={person.headshot}
+				alt={person.author}
+				class="{compact ? 'h-9 w-9' : 'h-11 w-11'} rounded-full object-cover"
+			/>
 			<div>
 				<p class="{compact ? 'text-xs' : 'text-sm'} font-semibold text-gray-800">{person.author}</p>
 				<p class="{compact ? 'text-xs' : 'text-sm'} text-gray-400">{person.role}</p>
