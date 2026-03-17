@@ -1,5 +1,4 @@
 <script lang="ts">
-	import NavBar from '$lib/components/NavBar.svelte';
 	import HeroSection from '$lib/components/HeroSection.svelte';
 	import HowWeWorkSection from '$lib/components/HowWeWorkSection.svelte';
 	import ProjectsSection from '$lib/components/ProjectsSection.svelte';
@@ -13,7 +12,6 @@
 	<title>Full Stack Services — Engineering for Founders</title>
 </svelte:head>
 
-<NavBar />
 <HeroSection />
 <!-- <TrustBarSection /> -->
 <HowWeWorkSection />
