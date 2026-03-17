@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin 'daisyui';
+@plugin '@tailwindcss/typography';
 
 :root {
 	--color-accent: #FF524B;

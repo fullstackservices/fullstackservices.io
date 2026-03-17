@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__svelte__svelte-autofixer",
-      "WebFetch(domain:www.npmjs.com)"
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(ls:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
